@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="grails.micronaut.http.complete.integrationTest" target="1.8" />
+      <module name="grails.micronaut.http.complete.main" target="1.8" />
+      <module name="grails.micronaut.http.complete.test" target="1.8" />
+      <module name="grails.micronaut.http.initial.integrationTest" target="1.8" />
+      <module name="grails.micronaut.http.initial.main" target="1.8" />
+      <module name="grails.micronaut.http.initial.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

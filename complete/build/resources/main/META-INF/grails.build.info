@@ -1,0 +1,6 @@
+#Wed, 01 May 2019 14:38:36 -0500
+
+info.app.version=0.1
+info.app.name=complete
+grails.env=production
+info.app.grailsVersion=4.0.0.RC1
