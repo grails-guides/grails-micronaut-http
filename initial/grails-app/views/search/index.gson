@@ -1,0 +1,15 @@
+import example.grails.Album
+
+model {
+    String searchTerm
+    List<Album> searchResults
+}
+
+json {
+    searchTerm searchTerm
+    searchResults searchResults, { Album album ->
+        artistName album.artistName
+        collectionName album.collectionName
+        collectionViewUrl album.collectionViewUrl
+    }
+}
