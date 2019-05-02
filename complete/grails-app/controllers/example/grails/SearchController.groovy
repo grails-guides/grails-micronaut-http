@@ -9,7 +9,7 @@ class SearchController {
 
     def searchWithDeclarativeClient(String searchTerm) {
         if(searchTerm) {
-            List<Album> searchResults = itunesSearchService.searchWithDeclaritiveClient(searchTerm)
+            List<Album> searchResults = itunesSearchService.searchWithDeclarativeClient(searchTerm)
             respond([searchTerm: searchTerm, searchResults: searchResults])
         }
     }
