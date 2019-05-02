@@ -1,4 +1,7 @@
 package example.grails
+
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.transform.CompileStatic
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
@@ -19,12 +22,17 @@ class ItunesSearchService {
         []
     }
 
-    String searchWithApi(String searchTerm) {
+    List<Album> searchWithApi(String searchTerm) {
         String baseUrl = "https://itunes.apple.com/"
         HttpClient client = HttpClient.create(baseUrl.toURL())
         HttpRequest request = HttpRequest.GET("/search?limit=25&media=music&entity=album&term=${searchTerm}")
 
         HttpResponse<String> resp = client.toBlocking().exchange(request, String)
-        resp.body()
+        String json = resp.body()
+
+        ObjectMapper objectMapper = new ObjectMapper()
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        SearchResult searchResult = objectMapper.readValue(json, SearchResult)
+        searchResult.results
     }
 }
