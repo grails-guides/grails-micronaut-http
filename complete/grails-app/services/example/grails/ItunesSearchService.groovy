@@ -1,10 +1,15 @@
 package example.grails
 import groovy.transform.CompileStatic
+import org.springframework.beans.factory.annotation.Autowired
 
 @CompileStatic
 class ItunesSearchService {
 
+    @Autowired
+    ItunesClient itunesClient
+
     List<Album> search(String searchTerm) {
-        [new Album(artistName: "Nirav", collectionName: "Blues", collectionViewUrl: "http://nirav.org")]
+        SearchResult searchResult = itunesClient.search(searchTerm)
+        searchResult.results
     }
 }
