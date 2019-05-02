@@ -34,4 +34,16 @@ class RecordLabelControllerSpec extends Specification {
         resp.body()[0].name == "Warner"
         resp.body()[1].name == "Sony"
     }
+
+    void "test rest post record labels"() {
+        when:"a post is issued"
+        HttpResponse<Map> resp = client.toBlocking().exchange(HttpRequest.POST("/recordlabels", [name: "Universal"]), Map)
+
+        then: "element is created"
+        resp.status == HttpStatus.CREATED
+        resp.body().size() == 2
+        resp.body().id
+        resp.body().name == "Universal"
+
+    }
 }
