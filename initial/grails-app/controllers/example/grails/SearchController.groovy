@@ -10,7 +10,7 @@ class SearchController {
     def index(String searchTerm) {
         if(searchTerm) {
             List<Album> searchResults = itunesSearchService.search(searchTerm)
-            [searchTerm: searchTerm, searchResults: searchResults]
+            respond([searchTerm: searchTerm, searchResults: searchResults])
         }
     }
 }

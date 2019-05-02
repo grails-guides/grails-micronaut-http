@@ -5,6 +5,6 @@ import groovy.transform.CompileStatic
 class ItunesSearchService {
 
     List<Album> search(String searchTerm) {
-        [new Album(artistName: "Nirav", collectionName: "Blues", collectionViewUrl: "http://nirav.org")]
+        [new Album(artistName: "Nirav Assar", collectionName: "Blues", collectionViewUrl: "http://nirav.org")]
     }
 }
