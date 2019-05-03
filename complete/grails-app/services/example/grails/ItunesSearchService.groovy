@@ -6,7 +6,6 @@ import groovy.transform.CompileStatic
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.client.HttpClient
-import io.reactivex.Single
 import org.springframework.beans.factory.annotation.Autowired
 
 @CompileStatic
@@ -16,10 +15,8 @@ class ItunesSearchService {
     ItunesClient itunesClient
 
     List<Album> searchWithDeclarativeClient(String searchTerm) {
-        Single<String> rxResult = itunesClient.search(searchTerm)
-        String searchResult = rxResult.blockingGet()
-        println searchResult
-        []
+        SearchResult searchResult = itunesClient.search(searchTerm)
+        searchResult.results
     }
 
     List<Album> searchWithApi(String searchTerm) {
