@@ -19,18 +19,12 @@ class ItunesSearchService {
         HttpClient client = HttpClient.create(baseUrl.toURL())
         HttpRequest request = HttpRequest.GET("/search?limit=25&media=music&entity=album&term=${searchTerm}")
 
-        // WORKS
         HttpResponse<String> resp = client.toBlocking().exchange(request, String)
         String json = resp.body()
         ObjectMapper objectMapper = new ObjectMapper()
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         SearchResult searchResult = objectMapper.readValue(json, SearchResult)
         searchResult.results
-
-        // DOES NOT WORK
-//        HttpResponse<SearchResult> resp = client.toBlocking().exchange(request, SearchResult)
-//        SearchResult searchResult = resp.body()
-//        searchResult.results
     }
 
     List<Album> searchWithDeclarativeClient(String searchTerm) {
