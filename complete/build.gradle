@@ -30,8 +30,6 @@ configurations {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-inject-java"
-
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
