@@ -20,11 +20,4 @@ class SearchController {
             respond([searchTerm: searchTerm, albums: albums])
         }
     }
-
-    def searchWithClientBeanInContext(String searchTerm) {
-        if(searchTerm) {
-            List<Album> albums = itunesSearchService.searchWithClientBeanInContext(searchTerm)
-            respond([searchTerm: searchTerm, albums: albums])
-        }
-    }
 }
