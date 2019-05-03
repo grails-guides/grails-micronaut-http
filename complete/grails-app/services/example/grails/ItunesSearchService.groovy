@@ -14,6 +14,9 @@ class ItunesSearchService {
     @Autowired
     ItunesClient itunesClient
 
+    @Autowired
+    MyHttpClients myHttpClients
+
     List<Album> searchWithApi(String searchTerm) {
         String baseUrl = "https://itunes.apple.com/"
         HttpClient client = HttpClient.create(baseUrl.toURL())
@@ -32,5 +35,13 @@ class ItunesSearchService {
         searchResult.results
     }
 
+    List<Album> searchWithClientBeanInContext(String searchTerm) {
+        HttpClient client = myHttpClients.itunesLowLevelClient
+        HttpRequest request = HttpRequest.GET("/search?limit=25&media=music&entity=album&term=${searchTerm}")
+
+        HttpResponse<SearchResult> resp = client.toBlocking().exchange(request, SearchResult)
+        SearchResult searchResult = resp.body()
+        searchResult.results
+    }
 
 }
