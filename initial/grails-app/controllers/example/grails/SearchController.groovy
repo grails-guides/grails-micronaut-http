@@ -7,10 +7,10 @@ class SearchController {
 
     ItunesSearchService itunesSearchService
 
-    def index(String searchTerm) {
+    def searchWithApi(String searchTerm) {
         if(searchTerm) {
-            List<Album> searchResults = itunesSearchService.search(searchTerm)
-            respond([searchTerm: searchTerm, searchResults: searchResults])
+            List<Album> albums = itunesSearchService.searchWithApi(searchTerm)
+            respond([searchTerm: searchTerm, albums: albums])
         }
     }
 }
