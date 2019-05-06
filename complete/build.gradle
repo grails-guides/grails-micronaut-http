@@ -61,7 +61,9 @@ dependencies {
     runtime "javax.xml.bind:jaxb-api:2.3.0"
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.mockito:mockito-core"
+    // tag::micronautDependency[]
     compile "io.micronaut:micronaut-http-client"
+    // end::micronautDependency[]
     testCompile "org.grails:grails-web-testing-support"
 }
 
