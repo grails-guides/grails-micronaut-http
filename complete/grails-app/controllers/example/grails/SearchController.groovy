@@ -7,16 +7,16 @@ class SearchController {
 
     ItunesSearchService itunesSearchService
 
-    def searchWithDeclarativeClient(String searchTerm) {
+    def searchWithApi(String searchTerm) {
         if(searchTerm) {
-            List<Album> albums = itunesSearchService.searchWithDeclarativeClient(searchTerm)
+            List<Album> albums = itunesSearchService.searchWithApi(searchTerm)
             respond([searchTerm: searchTerm, albums: albums])
         }
     }
 
-    def searchWithApi(String searchTerm) {
+    def searchWithDeclarativeClient(String searchTerm) {
         if(searchTerm) {
-            List<Album> albums = itunesSearchService.searchWithApi(searchTerm)
+            List<Album> albums = itunesSearchService.searchWithDeclarativeClient(searchTerm)
             respond([searchTerm: searchTerm, albums: albums])
         }
     }
