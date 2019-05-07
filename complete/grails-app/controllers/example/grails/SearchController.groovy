@@ -14,10 +14,12 @@ class SearchController {
         }
     }
 
+    // tag::searchWithDeclarativeClientController[]
     def searchWithDeclarativeClient(String searchTerm) {
         if(searchTerm) {
             List<Album> albums = itunesSearchService.searchWithDeclarativeClient(searchTerm)
             respond([searchTerm: searchTerm, albums: albums])
         }
     }
+    // end::searchWithDeclarativeClientController[]
 }

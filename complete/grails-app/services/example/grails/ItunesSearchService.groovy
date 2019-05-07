@@ -11,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired
 @CompileStatic
 class ItunesSearchService {
 
+    // tag::autoWireClient[]
     @Autowired
     ItunesClient itunesClient
+
+    // end::autoWireClient[]
 
     // tag::searchWithApi[]
     List<Album> searchWithApi(String searchTerm) {
@@ -29,8 +32,10 @@ class ItunesSearchService {
     }
     // end::searchWithApi[]
 
+    // tag::searchWithDeclarativeClient[]
     List<Album> searchWithDeclarativeClient(String searchTerm) {
         SearchResult searchResult = itunesClient.search(searchTerm)
         searchResult.results
     }
+    // end::searchWithDeclarativeClient[]
 }
