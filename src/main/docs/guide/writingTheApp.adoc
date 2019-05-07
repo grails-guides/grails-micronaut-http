@@ -1,5 +1,5 @@
 The `/initial` folder is a grails app created with the `rest-api` profile. It is a simple app setup to query the
-https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api[Apple Itunes API].
+https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api[Apple itunes API].
 The app takes in a `searchTerm` and is layered with:
 
 - `example.grails.SearchController`
