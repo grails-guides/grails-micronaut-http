@@ -6,7 +6,7 @@ named exactly the same as the JSON structure.  The iTunes API will return `resul
 - `collectionName`
 - `collectionViewUrl`
 
-Create the following POJOs:
+Note the following POJOs are already created:
 
 [source, groovy]
 .src/main/groovy/example/grails/SearchResult.groovy

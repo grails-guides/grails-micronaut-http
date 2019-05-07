@@ -30,7 +30,7 @@ class RecordLabelControllerSpec extends Specification {
 
         then: "client can retrieve them"
         resp.status == HttpStatus.OK  // <3>
-        resp.body().size() ==
+        resp.body().size() == 2
         resp.body()[0].name == "Warner"
         resp.body()[1].name == "Sony"
     }
