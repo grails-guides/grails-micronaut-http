@@ -11,7 +11,7 @@ include::{sourceDir}/src/main/groovy/example/grails/ItunesClient.groovy[]
 ----
 
 <1> Declare with `@Client` and set the URL.
-<2> Define a `@Get` Request with the parameters.
+<2> Define a `@Get` request with parameters.
 
 Inject the client into the service, and add the call to the interface method.
 
