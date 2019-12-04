@@ -12,6 +12,12 @@ include::{sourceDir}/grails-app/domain/example/grails/RecordLabel.groovy[]
 In the `BootStrap.groovy`, add some seed data for testing purposes:
 
 [source, groovy]
+.grails-app/services/example/grails/RecordLabelService.groovy
+----
+include::{sourceDir}/grails-app/services/example/grails/RecordLabelService.groovy[]
+----
+
+[source, groovy]
 .grails-app/init/example/grails/BootStrap.groovy
 ----
 include::{sourceDir}/grails-app/init/example/grails/BootStrap.groovy[]
