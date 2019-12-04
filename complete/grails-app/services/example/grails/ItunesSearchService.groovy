@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.client.HttpClient
+import io.micronaut.http.uri.UriBuilder
 import org.springframework.beans.factory.annotation.Autowired
 
 @CompileStatic
@@ -21,8 +22,12 @@ class ItunesSearchService {
     List<Album> searchWithApi(String searchTerm) {
         String baseUrl = "https://itunes.apple.com/"
         HttpClient client = HttpClient.create(baseUrl.toURL())
-        HttpRequest request = HttpRequest.GET("/search?limit=25&media=music&entity=album&term=${searchTerm}")
-
+        HttpRequest request = HttpRequest.GET(UriBuilder.of('/search')
+                .queryParam('limit', 25)
+                .queryParam('media', 'music')
+                .queryParam('entity', 'album')
+                .queryParam('term', searchTerm)
+                .build())
         HttpResponse<String> resp = client.toBlocking().exchange(request, String) // <1>
         String json = resp.body()
         ObjectMapper objectMapper = new ObjectMapper()
