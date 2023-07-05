@@ -1,7 +1,13 @@
 name: Java CI with Gradle
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - 'grails[3-9]'
+  pull_request:
+    branches:
+      - master
+      - 'grails[3-9]'
 jobs:
   build:
     runs-on: ubuntu-latest
